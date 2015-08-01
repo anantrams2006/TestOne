@@ -1,0 +1,15 @@
+<apex:page controller="newCont" >
+  <apex:form >
+   <apex:SelectList value="{!selectedObj}" size="1" style="width:172px;" >
+       <apex:actionSupport event="onchange" rerender="childList, unselected_list"/>
+       <apex:selectOptions value="{!objName}"></apex:selectOptions>
+   </apex:SelectList>
+  
+   <apex:SelectList value="{!selectedChildObj}" size="1" style="width:172px;" id="childList" >
+       <apex:selectOptions value="{!childName}"></apex:selectOptions>
+   </apex:SelectList>
+   <apex:selectList id="unselected_list" required="false" value="{!selectedMulti}" multiselect="true" size="20" style="width:250px">
+       <apex:selectOptions value="{!StdFields}"></apex:selectOptions>  
+   </apex:selectList>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,31 @@
+<apex:page standardController="Account" extensions="DemoClass">
+Hello {!$User.FirstName}
+                
+    <apex:form >
+    <apex:outputField value="{!account.Name}"/>
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+            <apex:pageBLockTable value="{!lstAcc}" var="acc" >
+            <apex:column headerValue="Account Name">
+                <apex:inputField value="{!acc.Name}"/>
+            </apex:column>
+            <apex:column headerValue="Parent">
+                <apex:inputField value="{!acc.ParentId}"/>    
+            </apex:column>
+            <apex:column headerValue="Parent Id">
+                <apex:inputText value="{!acc.ParentId}"/>
+            </apex:column>
+            <apex:column headerValue="Parent Name">
+                <apex:inputText value="{!acc.Parent.Name}"/>
+            </apex:column>
+            </apex:pageBLockTable>
+                <!--apex:detail subject="{!acc.id}"/-->
+        
+                <!--apex:inputField value="{!acc.ParentId}"/>    
+                <apex:inputText value="{!acc.ParentId}"/>    
+                <apex:inputText value="{!acc.Parent.Name}"/-->    
+                <br/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>        
+    </apex:form>
+</apex:page>

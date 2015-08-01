@@ -1,0 +1,67 @@
+<apex:page controller="cusController">
+   <apex:form >
+      <apex:actionFunction name="rerenderStates" rerender="statesSelectList" >
+          <apex:param name="firstParam" assignTo="{!country}" value="" />
+      </apex:actionFunction>
+
+   <table><tbody>
+      <tr>
+        <th>Country</th>
+          <td>
+             <apex:selectList id="country" styleclass="std" size="1" 
+                value="{!country}" onChange="rerenderStates(this.value)">
+                    <apex:selectOptions value="{!countriesSelectList}"/>
+             </apex:selectList>
+          </td>
+          <td>
+          <apex:commandButton value="Save Details" action="{!save}" style="left:290px;position:relative;"/>   
+          </td>
+      </tr>
+      <apex:pageMessages id="statesSelectList" />
+   </tbody></table>
+   
+   <table
+                style="margin-left: 50px; margin-top: 25px; margin-bottom: 20px;">
+               
+                <tr class="spaceUnder">
+                    <td class="decoText"><apex:outputText value="Where do you want to go?" /></td>
+                    <td><apex:inputText id="toCityId" styleClass="decoTd"
+                            disabled="" /></td>
+                </tr>
+
+                <tr class="spaceUnder">
+                    <td class="decoText"><apex:outputText value="How much money do you have?" /></td>
+                    <td class="decoText"><apex:selectList id="amount"
+                             size="1" style="width:172px;">
+                            <apex:selectOption itemValue="" itemLabel=" Select " />
+                            <apex:selectOption itemValue="< 50000" itemLabel="Under 50000" />
+                            <apex:selectOption itemValue="Package_Amount__c >= 50000 and Package_Amount__c < 100000"
+                                itemLabel="50000 - 100000" />
+                            <apex:selectOption itemValue="Package_Amount__c > 100000 and Package_Amount__c < 200000"
+                                itemLabel="100000 - 200000" />
+                            <apex:selectOption itemValue="Package_Amount__c > 300000 and Package_Amount__c < 500000"
+                                itemLabel="300000 - 500000" />
+                            <apex:selectOption itemValue="Package_Amount__c > 500000"
+                                itemLabel="500000 and above" />
+                        </apex:selectList></td>
+                </tr>
+
+
+                <tr class="spaceUnder">
+                    <td class="decoText"><apex:outputText value="When do you want to go?" /></td>
+                    <td></td>
+                </tr>
+
+                <tr class="spaceUnder">
+                    <td class="decoText"><apex:outputText value="How many leaves do you have?" /></td>
+                    <td><apex:inputText styleClass="decoTd" id="durationId"
+                            >
+                        </apex:inputText></td>
+                </tr>
+                <tr class="spaceUnder">
+                    <td styleClass="decoText"></td>
+                </tr>
+            </table>
+   
+   </apex:form>
+</apex:page>

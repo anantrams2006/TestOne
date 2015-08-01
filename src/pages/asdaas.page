@@ -1,0 +1,8 @@
+<apex:page standardController="Account" extensions="DynamicInputForm">
+<apex:repeat value="{!Acclist}" var="acc">
+<apex:repeat value="{!fieldsetname}" var="s">
+   <apex:outputText >{!acc[s]}</apex:outputText>
+</apex:repeat>
+<br/>
+</apex:repeat>
+</apex:page>

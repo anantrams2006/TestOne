@@ -1,0 +1,12 @@
+<apex:page >
+<script type="text/javascript">
+function f()[
+alert('hi');
+}
+</script>
+
+<apex:form >
+<button onclick="f()" value='Button' />
+</apex:form>
+
+</apex:page>
